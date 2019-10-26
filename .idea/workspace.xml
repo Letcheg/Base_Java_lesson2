@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24dd706d-3928-4a2c-9c69-bf91a13c912c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/basejava/webapp/MainTestArrayStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/basejava/webapp/MainTestArrayStorage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/basejava/webapp/storage/ArrayStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/basejava/webapp/storage/ArrayStorage.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -38,12 +37,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/basejava/webapp/storage/ArrayStorage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+            <state relative-caret-position="235">
+              <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2159#2160#0" expanded="true" />
-                <element signature="e#2211#2212#0" expanded="true" />
+                <element signature="e#2088#2089#0" expanded="true" />
+                <element signature="e#2140#2141#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -86,9 +85,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="756" />
+    <option name="x" value="436" />
     <option name="y" value="1" />
-    <option name="width" value="617" />
+    <option name="width" value="937" />
     <option name="height" value="734" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -222,7 +221,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="756" y="1" width="617" height="734" extended-state="0" />
+    <frame x="436" y="1" width="937" height="734" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
@@ -230,7 +229,7 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10412926" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21322691" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" sideWeight="0.49924356" weight="0.32569557" />
       <window_info anchor="bottom" id="Terminal" weight="0.32405892" />
@@ -323,12 +322,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/basejava/webapp/storage/ArrayStorage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+        <state relative-caret-position="235">
+          <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2159#2160#0" expanded="true" />
-            <element signature="e#2211#2212#0" expanded="true" />
+            <element signature="e#2088#2089#0" expanded="true" />
+            <element signature="e#2140#2141#0" expanded="true" />
           </folding>
         </state>
       </provider>
