@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class ArrayStorage {
 
     private int size = 0;
-    private Resume[] storage = new Resume[3];
+    private Resume[] storage = new Resume[10000];
 
 
     private boolean checkExistResume(String uuid) {
@@ -32,21 +32,24 @@ public class ArrayStorage {
     public void update(Resume r) {
         if (checkExistResume(r.getUuid())) {
             storage[Arrays.asList(storage).indexOf(r)] = r;
-        } else {
+        }
+        else {
             System.out.println("Ошибка: Резюме " + r.getUuid() + " не найдено. ");
         }
     }
 
-    public void save(Resume r) {
-        if (checkExistResume(r.getUuid()) == false) {
+    public void save(Resume resume) {
+        if (!checkExistResume(resume.getUuid())) {
             if (storage.length > size) {
-                storage[size] = r;
+                storage[size] = resume;
                 size++;
-            } else {
+            }
+            else {
                 System.out.println("Ошибка: Память хранилища заполнена. ");
             }
-        } else {
-            System.out.println("Ошибка: Резюме " + r.getUuid() + " уже существует. ");
+        }
+        else {
+            System.out.println("Ошибка: Резюме " + resume.getUuid() + " уже существует. ");
         }
     }
 
@@ -70,10 +73,8 @@ public class ArrayStorage {
         } else {
             int i;
             for (i = 0; i < size; i++) {
-                if (storage[i].getUuid() == uuid) {
-                    for (int j = i; j < size - 1; j++) {
-                        storage[j] = storage[j + 1];
-                    }
+                if (storage[i].getUuid().equals(uuid)) {
+                    if (size - 1 - i >= 0) System.arraycopy(storage, i + 1, storage, i, size - 1 - i);
                     storage[size - 1] = null;
                     size--;
                     System.out.println("Выполнено: Резюме " + uuid + " удалено. ");
