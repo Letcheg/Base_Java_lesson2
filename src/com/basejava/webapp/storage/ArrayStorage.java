@@ -33,23 +33,18 @@ public class ArrayStorage {
         if (index == -1) {
             System.out.println("Ошибка: Резюме " + resume.getUuid() + " не найдено. ");
         } else {
-            storage[Arrays.asList(storage).indexOf(resume)] = resume;
+            storage[index] = resume;
         }
     }
 
     public void save(Resume resume) {
-        int index = checkExist(resume.getUuid());
-        if (index != -1) {
+        if (checkExist(resume.getUuid()) != -1) {
             System.out.println("Ошибка: Резюме " + resume.getUuid() + " уже существует. ");
-        }
-        else {
-            if (storage.length < size) {
-                System.out.println("Ошибка: Память хранилища заполнена. ");
-            }
-            else {
-                storage[size] = resume;
-                size++;
-            }
+        } else if (storage.length < size) {
+            System.out.println("Ошибка: Память хранилища заполнена. ");
+        } else {
+            storage[size] = resume;
+            size++;
         }
     }
 
@@ -59,8 +54,7 @@ public class ArrayStorage {
         if (index == -1) {
             System.out.print("Ошибка: Резюме " + uuid + " не найдено. ");
             return null;
-        }
-        else {
+        } else {
             return storage[index];
         }
     }
@@ -70,12 +64,13 @@ public class ArrayStorage {
         int index = checkExist(uuid);
         if (index == -1) {
             System.out.println("Ошибка: Резюме " + uuid + " не найдено. ");
-        }
-        else {
-            if (size - 1 - index >= 0) System.arraycopy(storage, index + 1, storage, index, size - 1 - index);
-                    storage[size - 1] = null;
-                    size--;
-                    System.out.println("Выполнено: Резюме " + uuid + " удалено. ");
+        } else {
+            if (size - 1 - index >= 0) {
+                System.arraycopy(storage, index + 1, storage, index, size - 1 - index);
+                storage[size - 1] = null;
+                size--;
+                System.out.println("Выполнено: Резюме " + uuid + " удалено. ");
+            }
         }
     }
 
