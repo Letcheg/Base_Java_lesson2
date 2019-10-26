@@ -14,14 +14,13 @@ public class ArrayStorage {
     private Resume[] storage = new Resume[10000];
 
 
-    private boolean checkExistResume(String uuid) {
-        boolean check = false;
+    private int checkExist(String uuid) {
         for (int i = 0; i < size; i++) {
             if (storage[i].getUuid().equals(uuid)) {
-                check = true;
+                return i;
             }
         }
-        return check;
+        return -1;
     }
 
     public void clear() {
@@ -29,58 +28,54 @@ public class ArrayStorage {
         size = 0;
     }
 
-    public void update(Resume r) {
-        if (checkExistResume(r.getUuid())) {
-            storage[Arrays.asList(storage).indexOf(r)] = r;
-        }
-        else {
-            System.out.println("Ошибка: Резюме " + r.getUuid() + " не найдено. ");
+    public void update(Resume resume) {
+        int index = checkExist(resume.getUuid());
+        if (index == -1) {
+            System.out.println("Ошибка: Резюме " + resume.getUuid() + " не найдено. ");
+        } else {
+            storage[Arrays.asList(storage).indexOf(resume)] = resume;
         }
     }
 
     public void save(Resume resume) {
-        if (!checkExistResume(resume.getUuid())) {
-            if (storage.length > size) {
+        int index = checkExist(resume.getUuid());
+        if (index != -1) {
+            System.out.println("Ошибка: Резюме " + resume.getUuid() + " уже существует. ");
+        }
+        else {
+            if (storage.length < size) {
+                System.out.println("Ошибка: Память хранилища заполнена. ");
+            }
+            else {
                 storage[size] = resume;
                 size++;
             }
-            else {
-                System.out.println("Ошибка: Память хранилища заполнена. ");
-            }
-        }
-        else {
-            System.out.println("Ошибка: Резюме " + resume.getUuid() + " уже существует. ");
         }
     }
 
-    public Resume get(String uuid) {
-        if (checkExistResume(uuid)) {
-            for (int i = 0; i < size; i++) {
-                if (storage[i].getUuid() == uuid) {
-                    return storage[i];
-                }
-            }
-        }
-        System.out.print("Ошибка: Резюме " + uuid + " не найдено. ");
-        return null;
 
+    public Resume get(String uuid) {
+        int index = checkExist(uuid);
+        if (index == -1) {
+            System.out.print("Ошибка: Резюме " + uuid + " не найдено. ");
+            return null;
+        }
+        else {
+            return storage[index];
+        }
     }
 
 
     public void delete(String uuid) {
-        if (!checkExistResume(uuid)) {
+        int index = checkExist(uuid);
+        if (index == -1) {
             System.out.println("Ошибка: Резюме " + uuid + " не найдено. ");
-        } else {
-            int i;
-            for (i = 0; i < size; i++) {
-                if (storage[i].getUuid().equals(uuid)) {
-                    if (size - 1 - i >= 0) System.arraycopy(storage, i + 1, storage, i, size - 1 - i);
+        }
+        else {
+            if (size - 1 - index >= 0) System.arraycopy(storage, index + 1, storage, index, size - 1 - index);
                     storage[size - 1] = null;
                     size--;
                     System.out.println("Выполнено: Резюме " + uuid + " удалено. ");
-                    break;
-                }
-            }
         }
     }
 
