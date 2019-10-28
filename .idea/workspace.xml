@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24dd706d-3928-4a2c-9c69-bf91a13c912c" name="Default Changelist" comment="Add equals and hashCode">
+    <list default="true" id="24dd706d-3928-4a2c-9c69-bf91a13c912c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Base_Java/com/basejava/webapp/model/Resume.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Base_Java/com/basejava/webapp/model/Resume.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Base_Java/com/basejava/webapp/storage/ArrayStorage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Base_Java/com/basejava/webapp/storage/ArrayStorage.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/basejava/webapp/model/Resume.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+            <state relative-caret-position="224">
+              <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
               <folding>
                 <element signature="e#172#173#0" expanded="true" />
                 <element signature="e#199#200#0" expanded="true" />
@@ -34,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/basejava/webapp/storage/ArrayStorage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="69" column="19" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
+            <state relative-caret-position="215">
+              <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2037#2038#0" expanded="true" />
@@ -62,15 +64,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk-12/lib/src.zip!/java.base/java/lang/String.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="1501" column="11" selection-start-line="1501" selection-start-column="11" selection-end-line="1501" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -90,8 +83,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/basejava/webapp/MainTestArrayStorage.java" />
-        <option value="$PROJECT_DIR$/src/com/basejava/webapp/storage/ArrayStorage.java" />
         <option value="$PROJECT_DIR$/src/com/basejava/webapp/model/Resume.java" />
+        <option value="$PROJECT_DIR$/src/com/basejava/webapp/storage/ArrayStorage.java" />
       </list>
     </option>
   </component>
@@ -99,7 +92,7 @@
     <option name="x" value="721" />
     <option name="y" value="5" />
     <option name="width" value="642" />
-    <option name="height" value="601" />
+    <option name="height" value="684" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -238,11 +231,25 @@
       <option name="project" value="LOCAL" />
       <updated>1572301366491</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add equals and hashCode+">
+      <created>1572301481294</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1572301481294</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add Arrays invocation">
+      <created>1572302400237</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1572302400237</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="721" y="5" width="642" height="601" extended-state="0" />
+    <frame x="721" y="5" width="642" height="684" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.19343066" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -253,14 +260,14 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.32445922" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.323049" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.40599" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32405892" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50075644" side_tool="true" weight="0.32569557" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="9" sideWeight="0.49924356" visible="true" weight="0.32478634" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49924356" weight="0.32478634" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32733223" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -322,7 +329,9 @@
     <MESSAGE value="Commit 2" />
     <MESSAGE value="Commit 3" />
     <MESSAGE value="Add equals and hashCode" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add equals and hashCode" />
+    <MESSAGE value="Add equals and hashCode+" />
+    <MESSAGE value="Add Arrays invocation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Arrays invocation" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -333,20 +342,6 @@
           <folding>
             <element signature="e#77710#77711#0" expanded="true" />
             <element signature="e#77751#77752#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/basejava/webapp/storage/ArrayStorage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="69" column="19" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2037#2038#0" expanded="true" />
-            <element signature="e#2088#2089#0" expanded="true" />
-            <element signature="e#2113#2114#0" expanded="true" />
-            <element signature="e#2140#2141#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -381,8 +376,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/basejava/webapp/model/Resume.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+        <state relative-caret-position="224">
+          <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
           <folding>
             <element signature="e#172#173#0" expanded="true" />
             <element signature="e#199#200#0" expanded="true" />
@@ -390,6 +385,27 @@
             <element signature="e#522#523#0" expanded="true" />
             <element signature="e#239#240#0" expanded="true" />
             <element signature="e#271#272#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-12/lib/src.zip!/java.base/java/util/Arrays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="3660" column="23" selection-start-line="3660" selection-start-column="23" selection-end-line="3660" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/basejava/webapp/storage/ArrayStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2037#2038#0" expanded="true" />
+            <element signature="e#2088#2089#0" expanded="true" />
+            <element signature="e#2113#2114#0" expanded="true" />
+            <element signature="e#2140#2141#0" expanded="true" />
           </folding>
         </state>
       </provider>
