@@ -10,8 +10,9 @@ import java.util.Arrays;
 
 public class ArrayStorage {
 
+    private static final int STORAGE_LIMIT = 10000;
     private int size = 0;
-    private Resume[] storage = new Resume[10000];
+    private Resume[] storage = new Resume[STORAGE_LIMIT];
 
 
     private int checkExist(String uuid) {
@@ -40,7 +41,7 @@ public class ArrayStorage {
     public void save(Resume resume) {
         if (checkExist(resume.getUuid()) != -1) {
             System.out.println("Ошибка: Резюме " + resume.getUuid() + " уже существует. ");
-        } else if (storage.length < size) {
+        } else if (size == STORAGE_LIMIT) {
             System.out.println("Ошибка: Память хранилища заполнена. ");
         } else {
             storage[size] = resume;
