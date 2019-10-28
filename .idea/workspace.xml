@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24dd706d-3928-4a2c-9c69-bf91a13c912c" name="Default Changelist" comment="">
+    <list default="true" id="24dd706d-3928-4a2c-9c69-bf91a13c912c" name="Default Changelist" comment="Add equals and hashCode">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/basejava/webapp/model/Resume.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/basejava/webapp/model/Resume.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/basejava/webapp/model/Resume.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+            <state relative-caret-position="88">
+              <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
               <folding>
                 <element signature="e#172#173#0" expanded="true" />
                 <element signature="e#199#200#0" expanded="true" />
@@ -97,9 +96,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="732" />
+    <option name="x" value="721" />
+    <option name="y" value="5" />
     <option name="width" value="642" />
-    <option name="height" value="744" />
+    <option name="height" value="601" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -231,12 +231,18 @@
       <option name="project" value="LOCAL" />
       <updated>1572084320768</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add equals and hashCode">
+      <created>1572301366491</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1572301366491</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="732" y="0" width="642" height="744" extended-state="0" />
-    <editor active="true" />
+    <frame x="721" y="5" width="642" height="601" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.19343066" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -254,7 +260,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32405892" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50075644" side_tool="true" weight="0.32569557" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49924356" weight="0.32569557" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" sideWeight="0.49924356" visible="true" weight="0.32478634" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32733223" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -307,13 +313,17 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="1" />
     <MESSAGE value="Commit 2" />
     <MESSAGE value="Commit 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit 3" />
+    <MESSAGE value="Add equals and hashCode" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add equals and hashCode" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk-12/lib/src.zip!/java.base/java/lang/System.java">
@@ -371,8 +381,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/basejava/webapp/model/Resume.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        <state relative-caret-position="88">
+          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
           <folding>
             <element signature="e#172#173#0" expanded="true" />
             <element signature="e#199#200#0" expanded="true" />
