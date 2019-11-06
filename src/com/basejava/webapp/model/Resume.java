@@ -5,7 +5,7 @@ package com.basejava.webapp.model;
 /**
  * Initial resume class
  */
-public class Resume {
+public class Resume implements Comparable<Resume> {
 
     // Unique identifier
     private String uuid;
@@ -37,6 +37,21 @@ public class Resume {
     @Override
     public String toString() {
         return uuid;
+    }
+
+    @Override
+    public int compareTo(Resume anotherResume) {
+        int numThisUuid = Integer.parseInt(this.uuid.substring(4));
+        int numAnotherUuid = Integer.parseInt(anotherResume.uuid.substring(4));
+        if (numThisUuid < numAnotherUuid) {
+            return -1;
+        }
+        else if (numThisUuid > numAnotherUuid) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
     }
 }
 

@@ -8,15 +8,10 @@ import java.util.Arrays;
  * Array based storage for Resumes
  */
 
-public class ArrayStorage implements Storage{
+public class ArrayStorage extends AbstractArrayStorage{
 
-    private static final int STORAGE_LIMIT = 10000;
 
-    private Resume[] storage = new Resume[STORAGE_LIMIT];
-
-    private int size = 0;
-
-    private int checkExist(String uuid) {
+    protected int getIndex(String uuid) {
         for (int i = 0; i < size; i++) {
             if (storage[i].getUuid().equals(uuid)) {
                 return i;
@@ -30,19 +25,10 @@ public class ArrayStorage implements Storage{
         size = 0;
     }
 
-    public void update(Resume resume) {
-        int index = checkExist(resume.getUuid());
-        if (index == -1) {
-            System.out.println("Ошибка: Резюме " + resume.getUuid() + " не найдено. ");
-        } else {
-            storage[index] = resume;
-        }
-    }
-
     public void save(Resume resume) {
-        if (checkExist(resume.getUuid()) != -1) {
+        if (getIndex(resume.getUuid()) != -1) {
             System.out.println("Ошибка: Резюме " + resume.getUuid() + " уже существует. ");
-        } else if (size == STORAGE_LIMIT) {
+        } else if (size >= STORAGE_LIMIT) {
             System.out.println("Ошибка: Память хранилища заполнена. ");
         } else {
             storage[size] = resume;
@@ -50,20 +36,8 @@ public class ArrayStorage implements Storage{
         }
     }
 
-
-    public Resume get(String uuid) {
-        int index = checkExist(uuid);
-        if (index == -1) {
-            System.out.print("Ошибка: Резюме " + uuid + " не найдено. ");
-            return null;
-        } else {
-            return storage[index];
-        }
-    }
-
-
     public void delete(String uuid) {
-        int index = checkExist(uuid);
+        int index = getIndex(uuid);
         if (index == -1) {
             System.out.println("Ошибка: Резюме " + uuid + " не найдено. ");
         } else {
@@ -82,7 +56,5 @@ public class ArrayStorage implements Storage{
         return Arrays.copyOfRange(storage, 0, size);
     }
 
-    public int size() {
-        return size;
-    }
+
 }
