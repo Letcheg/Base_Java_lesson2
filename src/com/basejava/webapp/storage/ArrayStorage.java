@@ -2,14 +2,11 @@ package com.basejava.webapp.storage;
 
 import com.basejava.webapp.model.Resume;
 
-import java.util.Arrays;
-
 /**
  * Array based storage for Resumes
  */
 
 public class ArrayStorage extends AbstractArrayStorage{
-
 
     protected int getIndex(String uuid) {
         for (int i = 0; i < size; i++) {
@@ -18,11 +15,6 @@ public class ArrayStorage extends AbstractArrayStorage{
             }
         }
         return -1;
-    }
-
-    public void clear() {
-        Arrays.fill(storage, 0, size, null);
-        size = 0;
     }
 
     public void save(Resume resume) {
@@ -47,14 +39,4 @@ public class ArrayStorage extends AbstractArrayStorage{
             System.out.println("Выполнено: Резюме " + uuid + " удалено. ");
         }
     }
-
-
-    /**
-     * @return array, contains only Resumes in storage (without null)
-     */
-    public Resume[] getAll() {
-        return Arrays.copyOfRange(storage, 0, size);
-    }
-
-
 }

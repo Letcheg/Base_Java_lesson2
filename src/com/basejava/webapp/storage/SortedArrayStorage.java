@@ -17,13 +17,6 @@ public class SortedArrayStorage extends AbstractArrayStorage {
         }
     }
 
-
-    @Override
-    public void clear() {
-        Arrays.fill(storage, 0, size, null);
-        size = 0;
-    }
-
     @Override
     public void save(Resume resume) {
         int saveIndex = getIndex(resume.getUuid());
@@ -64,10 +57,5 @@ public class SortedArrayStorage extends AbstractArrayStorage {
             System.out.println("Выполнено: Резюме " + uuid + " удалено. ");
         }
 
-    }
-
-    @Override
-    public Resume[] getAll() {
-        return Arrays.copyOfRange(storage, 0, size);
     }
 }
