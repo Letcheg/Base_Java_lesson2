@@ -5,6 +5,7 @@ import com.basejava.webapp.model.Resume;
 import java.util.Arrays;
 
 public class SortedArrayStorage extends AbstractArrayStorage {
+
     @Override
     protected int getIndex(String uuid) {
         Resume searchKey = new Resume();
@@ -43,19 +44,4 @@ public class SortedArrayStorage extends AbstractArrayStorage {
                 size++;
             }
         }
-
-
-    @Override
-    public void delete(String uuid) {
-        int index = getIndex(uuid);
-        if (index < 0) {
-            System.out.println("Ошибка: Резюме " + uuid + " не найдено. ");
-        } else {
-            System.arraycopy(storage, index + 1, storage, index, size - 1 - index);
-            storage[size - 1] = null;
-            size--;
-            System.out.println("Выполнено: Резюме " + uuid + " удалено. ");
-        }
-
-    }
 }
