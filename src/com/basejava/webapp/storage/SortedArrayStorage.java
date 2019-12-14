@@ -8,40 +8,25 @@ public class SortedArrayStorage extends AbstractArrayStorage {
 
     @Override
     protected int getIndex(String uuid) {
-        Resume searchKey = new Resume();
-        searchKey.setUuid(uuid);
-        if (uuid.matches("uuid[1-9]\\d*")){
-            return Arrays.binarySearch(storage, 0, size, searchKey);
-        }
-        else {
+        if (uuid.matches("uuid[1-9]\\d{0,5}") == false || Integer.parseInt(uuid.substring(4)) > STORAGE_LIMIT) {
             return -10001;
+        } else {
+            Resume searchKey = new Resume();
+            searchKey.setUuid(uuid);
+            return Arrays.binarySearch(storage, 0, storageSize, searchKey);
         }
     }
 
     @Override
-    public void save(Resume resume) {
-        int saveIndex = getIndex(resume.getUuid());
-        if (saveIndex == -10001){
-            System.out.println("Ошибка: Некорректный формат идентификатора " + resume.getUuid() + " != uuid1...uuid10000");
-        }
-        else if (size >= STORAGE_LIMIT) {
-            System.out.println("Ошибка: Память хранилища заполнена. ");
-        }
-        else if (saveIndex > 0) {
-                System.out.println("Ошибка: Резюме " + resume.getUuid() + " уже существует. ");
-            }
-        else {
-                if (size>(-saveIndex)-1){
-                    for ( int i = size; i > (-saveIndex)-1; i--){
-                        storage[i]=storage[i-1];
-                    }
-                    storage[(-saveIndex)-1] = resume;
-                }
-                else {
-                    storage[size] = resume;
-                }
-                System.out.println("Резюме " + resume.getUuid() + " добавлено в хранилище.  ");
-                size++;
+    protected void addResumeInStorage(Resume resume) {
+        int binarySearchResult = (-saveIndex) - 1;//позиция, в которой должен находиться ненайденный результат binarySearch. Бинарный поиск(метод getIndex), если не найдено искомое, возвращает отрицательное число = позиция (с 1) искомого в упорядоченном массиве
+        if (binarySearchResult < storageSize & storageSize != 0) {//сохранение упорядоченности массива при записи нового элемента
+            for (int i = storageSize; i > binarySearchResult; i--) {
+                storage[i] = storage[i - 1];
             }
         }
+        storage[binarySearchResult] = resume;
+    }
 }
+
+

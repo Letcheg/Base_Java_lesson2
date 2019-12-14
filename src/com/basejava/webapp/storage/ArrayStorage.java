@@ -8,23 +8,23 @@ import com.basejava.webapp.model.Resume;
 
 public class ArrayStorage extends AbstractArrayStorage{
 
+    @Override
     protected int getIndex(String uuid) {
-        for (int i = 0; i < size; i++) {
+        if (uuid.matches("uuid[1-9]\\d{0,5}") == false || Integer.parseInt(uuid.substring(4)) > STORAGE_LIMIT) {
+            return -10001;
+        }
+        for (int i = 0; i < storageSize; i++) {
             if (storage[i].getUuid().equals(uuid)) {
                 return i;
             }
         }
-        return -1;
+        return -10002;
     }
 
-    public void save(Resume resume) {
-        if (getIndex(resume.getUuid()) != -1) {
-            System.out.println("Ошибка: Резюме " + resume.getUuid() + " уже существует. ");
-        } else if (size >= STORAGE_LIMIT) {
-            System.out.println("Ошибка: Память хранилища заполнена. ");
-        } else {
-            storage[size] = resume;
-            size++;
-        }
+    @Override
+    protected void addResumeInStorage(Resume resume) {
+        storage[storageSize] = resume;
     }
+
+
 }
