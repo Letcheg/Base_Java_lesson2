@@ -10,21 +10,16 @@ public class ArrayStorage extends AbstractArrayStorage{
 
     @Override
     protected int getIndex(String uuid) {
-        if (uuid.matches("uuid[1-9]\\d{0,5}") == false || Integer.parseInt(uuid.substring(4)) > STORAGE_LIMIT) {
-            return -10001;
-        }
         for (int i = 0; i < storageSize; i++) {
             if (storage[i].getUuid().equals(uuid)) {
                 return i;
             }
         }
-        return -10002;
+        return -1;
     }
 
     @Override
-    protected void addResumeInStorage(Resume resume) {
+    protected void addResumeInStorage(Resume resume, int indexresume) {
         storage[storageSize] = resume;
     }
-
-
 }

@@ -1,7 +1,6 @@
 package com.basejava.webapp.model;
 
 
-
 /**
  * Initial resume class
  */
@@ -14,6 +13,10 @@ public class Resume implements Comparable<Resume> {
         return uuid;
     }
 
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -22,16 +25,11 @@ public class Resume implements Comparable<Resume> {
         Resume resume = (Resume) o;
 
         return uuid.equals(resume.uuid);
-
     }
 
     @Override
     public int hashCode() {
         return uuid.hashCode();
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
     }
 
     @Override
@@ -41,17 +39,7 @@ public class Resume implements Comparable<Resume> {
 
     @Override
     public int compareTo(Resume anotherResume) {
-        int numThisUuid = Integer.parseInt(this.uuid.substring(4));
-        int numAnotherUuid = Integer.parseInt(anotherResume.uuid.substring(4));
-        if (numThisUuid < numAnotherUuid) {
-            return -1;
-        }
-        else if (numThisUuid > numAnotherUuid) {
-            return 1;
-        }
-        else {
-            return 0;
-        }
+        return this.uuid.compareTo(anotherResume.uuid);
     }
 }
 

@@ -16,9 +16,9 @@ public abstract class AbstractArrayStorage implements Storage {
 
     protected int storageSize = 0;
 
-    protected abstract int getIndex (String uuid);
+    protected abstract int getIndex(String uuid);
 
-    protected abstract void addResumeInStorage(Resume resume);
+    protected abstract void addResumeInStorage(Resume resume, int indexresume);
 
     public void clear() {
         Arrays.fill(storage, 0, storageSize, null);
@@ -34,34 +34,31 @@ public abstract class AbstractArrayStorage implements Storage {
             System.out.println("Резюме " + resume.getUuid() + " обновлено. ");
         }
     }
-    protected int saveIndex;
+
     public void save(Resume resume) {
-        saveIndex = getIndex(resume.getUuid());
-        if (saveIndex == -10001) {
-            System.out.println("Ошибка сохранения: Некорректный формат идентификатора " + resume + " != uuid1...uuid10000");
-        }
-        else if (storageSize >= STORAGE_LIMIT) {
+        if (storageSize >= STORAGE_LIMIT) {
             System.out.println("Ошибка сохранения: Память хранилища заполнена. ");
-        }
-        else if (saveIndex >= 0) {
+        } else {
+            int indexresume = getIndex(resume.getUuid());
+            if (indexresume >= 0) {
                 System.out.println("Ошибка сохранения: Резюме " + resume.getUuid() + " уже существует. ");
-        }
-        else {
-                addResumeInStorage(resume);
+            } else {
+                addResumeInStorage(resume, indexresume);
                 storageSize++;
                 System.out.println("Резюме " + resume.getUuid() + " сохранено в хранилище.  " + "Общее количество резюме " + storageSize);
             }
         }
+    }
 
     public Resume get(String uuid) {
         int index = getIndex(uuid);
         if (index < 0) {
             System.out.print("Ошибка поиска: Резюме " + uuid + " не найдено. ");
             return null;
-        } else {
-            return storage[index];
         }
+        return storage[index];
     }
+
 
     public void delete(String uuid) {
         int index = getIndex(uuid);
@@ -80,7 +77,7 @@ public abstract class AbstractArrayStorage implements Storage {
      * @return array, contains only Resumes in storage (without null)
      */
     public Resume[] getAll() {
-        return Arrays.copyOfRange(storage, 0, storageSize);
+        return Arrays.copyOf(storage, storageSize);
     }
 
     public int size() {

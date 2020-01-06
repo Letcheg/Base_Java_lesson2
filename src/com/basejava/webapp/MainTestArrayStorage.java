@@ -1,29 +1,29 @@
 package com.basejava.webapp;
 
 import com.basejava.webapp.model.Resume;
-import com.basejava.webapp.storage.SortedArrayStorage;
+import com.basejava.webapp.storage.ArrayStorage;
 import com.basejava.webapp.storage.Storage;
 
 /**
  * Test for your com.pashuk.webapp.storage.ArrayStorage implementation
  */
 public class MainTestArrayStorage {
-    private final static Storage ARRAY_STORAGE = new SortedArrayStorage();
+    private final static Storage ARRAY_STORAGE = new ArrayStorage();
 
     public static void main(String[] args) {
         final Resume r1 = new Resume();
-        r1.setUuid("uuidd5");
+        r1.setUuid("uuid2");
         final Resume r2 = new Resume();
 
-        r2.setUuid("uuid4444");
+        r2.setUuid("uuid4");
         final Resume r3 = new Resume();
-        r3.setUuid("uuid300");
+        r3.setUuid("uuid33");
         final Resume r4 = new Resume();
-        r4.setUuid("uuid2");
+        r4.setUuid("uuid22");
         final Resume r5 = new Resume();
-        r5.setUuid("uuid1");
+        r5.setUuid("uuid122");
         final Resume r6 = new Resume();
-        r6.setUuid("uuid1");
+        r6.setUuid("uuid222");
         final Resume r7 = new Resume();
         r7.setUuid("uuid1");
 
