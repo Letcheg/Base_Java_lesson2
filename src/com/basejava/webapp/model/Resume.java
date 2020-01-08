@@ -39,7 +39,7 @@ public class Resume implements Comparable<Resume> {
 
     @Override
     public int compareTo(Resume anotherResume) {
-        return this.uuid.compareTo(anotherResume.uuid);
+        return uuid.compareTo(anotherResume.uuid);
     }
 }
 

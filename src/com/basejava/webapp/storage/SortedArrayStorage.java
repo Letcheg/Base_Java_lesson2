@@ -10,18 +10,29 @@ public class SortedArrayStorage extends AbstractArrayStorage {
     protected int getIndex(String uuid) {
         Resume searchKey = new Resume();
         searchKey.setUuid(uuid);
-        return Arrays.binarySearch(storage, 0, storageSize, searchKey);
+        return Arrays.binarySearch(storage, 0, size, searchKey);
     }
 
     @Override
-    protected void addResumeInStorage(Resume resume, int indexresume) {
-        int binaryindexresume = -indexresume - 1;//позиция, в которой должен находиться ненайденный результат binarySearch. Бинарный поиск(метод getIndex), если не найдено искомое, возвращает отрицательное число = позиция (с 1) искомого в упорядоченном массиве
-        if (binaryindexresume < storageSize & storageSize != 0) {//сохранение упорядоченности массива при записи нового элемента
-            for (int i = storageSize; i > binaryindexresume; i--) {
-                storage[i] = storage[i - 1];
-            }
+    protected void addResumeToStorage(Resume resume, int index) {
+        index = -index - 1;//позиция, в которой должен находиться ненайденный результат binarySearch. Бинарный поиск(метод getIndex), если не найдено искомое, возвращает отрицательное число = позиция (с 1) искомого в упорядоченном массиве
+        if (index < size & size != 0) {//сохранение упорядоченности массива при записи нового элемента
+            System.arraycopy(storage, index, storage, index+1, size - index);
         }
-        storage[binaryindexresume] = resume;
+        storage[index] = resume;
+    }
+
+    @Override
+    public void delete(String uuid) {
+        int index = getIndex(uuid);
+        if (index < 0) {
+            System.out.println("Ошибка удаления: Резюме " + uuid + " не найдено. ");
+        } else {
+            System.arraycopy(storage, index + 1, storage, index, size - 1 - index);
+            storage[size - 1] = null;
+            size--;
+            System.out.println("Выполнено: Резюме " + uuid + " удалено. ");
+        }
     }
 }
 

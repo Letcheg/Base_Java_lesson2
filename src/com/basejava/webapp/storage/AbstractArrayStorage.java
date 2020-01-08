@@ -10,19 +10,20 @@ import java.util.Arrays;
 
 public abstract class AbstractArrayStorage implements Storage {
 
-    protected static final int STORAGE_LIMIT = 10000;
+    protected static final int STORAGE_LIMIT = 10_000;
 
     protected Resume[] storage = new Resume[STORAGE_LIMIT];
 
-    protected int storageSize = 0;
+    protected int size = 0;
 
     protected abstract int getIndex(String uuid);
 
-    protected abstract void addResumeInStorage(Resume resume, int indexresume);
+    protected abstract void addResumeToStorage(Resume resume, int index);
 
     public void clear() {
-        Arrays.fill(storage, 0, storageSize, null);
-        storageSize = 0;
+        Arrays.fill(storage, 0, size, null);
+        size = 0;
+        System.out.println("Все резюме удалены.");
     }
 
     public void update(Resume resume) {
@@ -36,16 +37,16 @@ public abstract class AbstractArrayStorage implements Storage {
     }
 
     public void save(Resume resume) {
-        if (storageSize >= STORAGE_LIMIT) {
+        if (size >= STORAGE_LIMIT) {
             System.out.println("Ошибка сохранения: Память хранилища заполнена. ");
         } else {
-            int indexresume = getIndex(resume.getUuid());
-            if (indexresume >= 0) {
+            int index = getIndex(resume.getUuid());
+            if (index >= 0) {
                 System.out.println("Ошибка сохранения: Резюме " + resume.getUuid() + " уже существует. ");
             } else {
-                addResumeInStorage(resume, indexresume);
-                storageSize++;
-                System.out.println("Резюме " + resume.getUuid() + " сохранено в хранилище.  " + "Общее количество резюме " + storageSize);
+                addResumeToStorage(resume, index);
+                size++;
+                System.out.println("Резюме " + resume.getUuid() + " сохранено в хранилище.  " + "Общее количество резюме " + size);
             }
         }
     }
@@ -59,29 +60,17 @@ public abstract class AbstractArrayStorage implements Storage {
         return storage[index];
     }
 
-
-    public void delete(String uuid) {
-        int index = getIndex(uuid);
-        if (index < 0) {
-            System.out.println("Ошибка удаления: Резюме " + uuid + " не найдено. ");
-        } else {
-            System.arraycopy(storage, index + 1, storage, index, storageSize - 1 - index);
-            storage[storageSize - 1] = null;
-            storageSize--;
-            System.out.println("Выполнено: Резюме " + uuid + " удалено. ");
-        }
-
-    }
+    public abstract void delete(String uuid);
 
     /**
      * @return array, contains only Resumes in storage (without null)
      */
     public Resume[] getAll() {
-        return Arrays.copyOf(storage, storageSize);
+        return Arrays.copyOf(storage, size);
     }
 
     public int size() {
-        return storageSize;
+        return size;
     }
 
 }
