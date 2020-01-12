@@ -24,15 +24,11 @@ public class ArrayStorage extends AbstractArrayStorage {
     }
 
     @Override
-    public void delete(String uuid) {
-        int index = getIndex(uuid);
-        if (index < 0) {
-            System.out.println("Ошибка удаления: Резюме " + uuid + " не найдено. ");
-        } else {
-            storage[index] = storage[size-1];
-            storage[size - 1] = null;
-            size--;
-            System.out.println("Выполнено: Резюме " + uuid + " удалено. ");
-        }
+    public void deletion(String uuid, int index) {
+        storage[index] = storage[size - 1];
+        storage[size - 1] = null;
+        size--;
+        System.out.println("Выполнено: Резюме " + uuid + " удалено. ");
     }
 }
+

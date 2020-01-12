@@ -20,6 +20,8 @@ public abstract class AbstractArrayStorage implements Storage {
 
     protected abstract void addResumeToStorage(Resume resume, int index);
 
+    protected abstract void deletion(String uuid, int index);
+
     public void clear() {
         Arrays.fill(storage, 0, size, null);
         size = 0;
@@ -60,7 +62,14 @@ public abstract class AbstractArrayStorage implements Storage {
         return storage[index];
     }
 
-    public abstract void delete(String uuid);
+    public void delete(String uuid) {
+        int index = getIndex(uuid);
+        if (index < 0) {
+            System.out.println("Ошибка удаления: Резюме " + uuid + " не найдено. ");
+        } else {
+            deletion(uuid, index);
+        }
+    }
 
     /**
      * @return array, contains only Resumes in storage (without null)
@@ -72,5 +81,4 @@ public abstract class AbstractArrayStorage implements Storage {
     public int size() {
         return size;
     }
-
 }
