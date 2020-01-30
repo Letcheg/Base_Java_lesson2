@@ -1,5 +1,8 @@
 package com.basejava.webapp.storage;
 
+import com.basejava.webapp.exception.ExistStorageException;
+import com.basejava.webapp.exception.NotExistStorageException;
+import com.basejava.webapp.exception.StorageException;
 import com.basejava.webapp.model.Resume;
 
 import java.util.Arrays;
@@ -31,7 +34,7 @@ public abstract class AbstractArrayStorage implements Storage {
     public void update(Resume resume) {
         int index = getIndex(resume.getUuid());
         if (index < 0) {
-            System.out.println("Ошибка обновления: Резюме " + resume.getUuid() + " не найдено. ");
+            throw new NotExistStorageException(resume.getUuid());
         } else {
             storage[index] = resume;
             System.out.println("Резюме " + resume.getUuid() + " обновлено. ");
@@ -40,11 +43,11 @@ public abstract class AbstractArrayStorage implements Storage {
 
     public void save(Resume resume) {
         if (size >= STORAGE_LIMIT) {
-            System.out.println("Ошибка сохранения: Память хранилища заполнена. ");
+            throw new StorageException("Хранилище заполнено", resume.getUuid());
         } else {
             int index = getIndex(resume.getUuid());
             if (index >= 0) {
-                System.out.println("Ошибка сохранения: Резюме " + resume.getUuid() + " уже существует. ");
+                throw new ExistStorageException(resume.getUuid());
             } else {
                 addResumeToStorage(resume, index);
                 size++;
@@ -56,8 +59,7 @@ public abstract class AbstractArrayStorage implements Storage {
     public Resume get(String uuid) {
         int index = getIndex(uuid);
         if (index < 0) {
-            System.out.print("Ошибка поиска: Резюме " + uuid + " не найдено. ");
-            return null;
+            throw new NotExistStorageException(uuid);
         }
         return storage[index];
     }
@@ -65,9 +67,12 @@ public abstract class AbstractArrayStorage implements Storage {
     public void delete(String uuid) {
         int index = getIndex(uuid);
         if (index < 0) {
-            System.out.println("Ошибка удаления: Резюме " + uuid + " не найдено. ");
+            throw new NotExistStorageException(uuid);
         } else {
             deletion(uuid, index);
+            storage[size - 1] = null;
+            size--;
+            System.out.println("Выполнено: Резюме " + uuid + " удалено. ");
         }
     }
 

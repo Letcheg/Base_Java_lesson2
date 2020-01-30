@@ -12,20 +12,13 @@ public class MainTestArrayStorage {
 
     public static void main(String[] args) {
         final Resume r1 = new Resume();
-        r1.setUuid("uuid2");
         final Resume r2 = new Resume();
 
-        r2.setUuid("uuid4");
         final Resume r3 = new Resume();
-        r3.setUuid("uuid33");
         final Resume r4 = new Resume();
-        r4.setUuid("uuid22");
         final Resume r5 = new Resume();
-        r5.setUuid("uuid122");
         final Resume r6 = new Resume();
-        r6.setUuid("uuid222");
         final Resume r7 = new Resume();
-        r7.setUuid("uuid1");
 
         ARRAY_STORAGE.save(r1);
         ARRAY_STORAGE.save(r2);
